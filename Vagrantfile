@@ -1,5 +1,5 @@
 # -*- mode: ruby -*-
-# vi: set ft=ruby :
+ # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
   config.vm.box = 'digital_ocean'
@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "minitwit", primary: true do |server|
 
     server.vm.provider :digital_ocean do |provider|
-      provider.ssh_key_name = "do_ssh_key"
+      provider.ssh_key_name = "travis-ci"
       provider.token = ENV["DIGITAL_OCEAN_TOKEN"]
       provider.image = 'docker-18-04'
       provider.region = 'fra1'
@@ -33,8 +33,8 @@ Vagrant.configure("2") do |config|
     echo ". $HOME/.bashrc" >> $HOME/.bash_profile
 
     echo -e "\nConfiguring credentials as environment variables...\n"
-    echo "export DOCKER_USERNAME='<your_dockerhub_id>'" >> $HOME/.bash_profile
-    echo "export DOCKER_PASSWORD='<your_dockerhub_pwd>'" >> $HOME/.bash_profile
+    echo "export DOCKER_USERNAME='victornor'" >> $HOME/.bash_profile
+    echo "export DOCKER_PASSWORD='Hejhej112233'" >> $HOME/.bash_profile
     source $HOME/.bash_profile
 
     echo -e "\nVagrant setup done ..."
